@@ -1,10 +1,10 @@
 /**
  * Created by Jimin on 9/22/17.
+ * NHN 모의테스트 2
  */
 
 import java.util.Scanner;
-//NHN 모의테스트 2
-public class NHN2_JimJim {
+public class NHN_2_JimJim {
     public static void main(String[] agrv){
         Scanner scan = new Scanner(System.in);
         int size = scan.nextInt();

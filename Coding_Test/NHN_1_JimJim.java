@@ -3,7 +3,7 @@ import java.util.*;
 
 
 //NHN 모의테스트 1
-class NHN1_JimJim {
+public class NHN_1_JimJim {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -84,11 +84,9 @@ class NHN1_JimJim {
             } else {
                 max_num += (int)num[num.length-i-1][0];
             }
-            System.out.println(max_num);
         }
         min_num_int = Integer.parseInt(min_num);
         max_num_int = Integer.parseInt(max_num);
         System.out.println(max_num_int +min_num_int);
-        System.out.println(max_num_int +" "+min_num_int);
     }
 }

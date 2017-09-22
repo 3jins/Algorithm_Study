@@ -1,1 +1,5 @@
 *.Class
+JimJimBread.iml
+out/*
+.idea/*
+.DS_Store
