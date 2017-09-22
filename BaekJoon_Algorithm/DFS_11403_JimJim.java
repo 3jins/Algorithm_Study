@@ -5,7 +5,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Main11403 {
+public class DFS_11403_JimJim {
 
     public static Stack<Integer> dfs(int[][] matrix, boolean[] check, int v, boolean flag) {
         Stack<Integer> stack = new Stack<Integer>();
