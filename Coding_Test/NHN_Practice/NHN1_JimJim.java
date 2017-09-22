@@ -3,7 +3,7 @@ import java.util.*;
 
 
 //NHN 모의테스트 1
-class NHN1_Main {
+class NHN1_JimJim {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
