@@ -1,29 +1,29 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class DFS_14503_Bread {	//·Îº¿Ã»¼Ò±â ¹®Á¦
+public class DFS_14503_Bread {	//ë¡œë´‡ì²­ì†Œê¸° ë¬¸ì œ
 	static int[][] map;
 	static boolean[][] isCleaned;
-/*	½ÇÇà¿¹½Ã :´ä 57
-    11 10
-	7 4 0
-	1 1 1 1 1 1 1 1 1 1
-	1 0 0 0 0 0 0 0 0 1
-	1 0 0 0 1 1 1 1 0 1
-	1 0 0 1 1 0 0 0 0 1
-	1 0 1 1 0 0 0 0 0 1
-	1 0 0 0 0 0 0 0 0 1
-	1 0 0 0 0 0 0 1 0 1
-	1 0 0 0 0 0 1 1 0 1
-	1 0 0 0 0 0 1 1 0 1
-	1 0 0 0 0 0 0 0 0 1
-	1 1 1 1 1 1 1 1 1 1
-	*/
+/*	ì‹¤í–‰ì˜ˆì‹œ :ë‹µ 57
+11 10
+7 4 0
+1 1 1 1 1 1 1 1 1 1
+1 0 0 0 0 0 0 0 0 1
+1 0 0 0 1 1 1 1 0 1
+1 0 0 1 1 0 0 0 0 1
+1 0 1 1 0 0 0 0 0 1
+1 0 0 0 0 0 0 0 0 1
+1 0 0 0 0 0 0 1 0 1
+1 0 0 0 0 0 1 1 0 1
+1 0 0 0 0 0 1 1 0 1
+1 0 0 0 0 0 0 0 0 1
+1 1 1 1 1 1 1 1 1 1
+*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		int mx = sc.nextInt();	//¼¼·ÎÅ©±â - Çà ¼ö
-		int my = sc.nextInt();	//°¡·ÎÅ©±â - ¿­ ¼ö
+		int mx = sc.nextInt();	//ì„¸ë¡œí¬ê¸° - í–‰ ìˆ˜
+		int my = sc.nextInt();	//ê°€ë¡œí¬ê¸° - ì—´ ìˆ˜
 		sc.nextLine();
 		String rob = sc.nextLine();
 		String rb[] = rob.split(" ");
@@ -64,20 +64,20 @@ public class DFS_14503_Bread {	//·Îº¿Ã»¼Ò±â ¹®Á¦
 			//System.out.println("x:" + ind.peek().x + " y:" + ind.peek().y+" dir:"+ind.peek().dir);
 			for (int i = 0; i < 4; i++) {
 				Point t = turnLeftandGo(ind.peek());
-					if (!isCleaned[t.x][t.y] && map[t.x][t.y] != 1) {	//¾ÕÀ¸·Î °¥ °÷ÀÌ Ã»¼Ò¾ÈµÈ°÷ÀÎÁö? ¾È¸·ÇôÀÖ´ÂÁö?
-						ind.push(turnLeftandGo(ind.peek()));	//¿ŞÂÊ È¸ÀüÇØ ÇÑÄ­ ¿Å±ä°Å push
-						flag = true;	//ÀÌµ¿ÇßÀ¸¸é flag true
-						isCleaned[t.x][t.y]=true;	//Ã»¼ÒÇÑ Ä­ Ç¥½Ã
+					if (!isCleaned[t.x][t.y] && map[t.x][t.y] != 1) {	//ì•ìœ¼ë¡œ ê°ˆ ê³³ì´ ì²­ì†Œì•ˆëœê³³ì¸ì§€? ì•ˆë§‰í˜€ìˆëŠ”ì§€?
+						ind.push(turnLeftandGo(ind.peek()));	//ì™¼ìª½ íšŒì „í•´ í•œì¹¸ ì˜®ê¸´ê±° push
+						flag = true;	//ì´ë™í–ˆìœ¼ë©´ flag true
+						isCleaned[t.x][t.y]=true;	//ì²­ì†Œí•œ ì¹¸ í‘œì‹œ
 						break;
-					} else {	//Ã»¼ÒµÇÀÖ´Â°÷ÀÌ¾ú°Å³ª ¸·ÇôÀÖ¾úÀ¸¸é
-						ind.push(turnLeft(ind.pop()));	//ÀÖ´ø°Å »©¼­ ¿ŞÂÊÀ¸·Î µ¹¸®°í ´Ù½Ã Áı¾î³ÖÀ½.
+					} else {	//ì²­ì†Œë˜ìˆëŠ”ê³³ì´ì—ˆê±°ë‚˜ ë§‰í˜€ìˆì—ˆìœ¼ë©´
+						ind.push(turnLeft(ind.pop()));	//ìˆë˜ê±° ë¹¼ì„œ ì™¼ìª½ìœ¼ë¡œ ëŒë¦¬ê³  ë‹¤ì‹œ ì§‘ì–´ë„£ìŒ.
 					}
 			}
-			if (!flag && canGoBack(ind.peek())) {	//¿ŞÂÊÀ¸·Î È¸Àü 4¹ø ÇØµµ ¸ø°¬°í & µÚ¿¡ º® ¾ø°í & µÚ¿¡ Ã»¼ÒÇÑ°÷µµ ¾ø´Ù?
-				ind.push(goBackOnce(ind.peek()));	//µÚ·Î »ªÇÔ
-				isCleaned[ind.peek().x][ind.peek().y]=true;	//µÚ·Î °£ °÷ »õ·Î Ã»¼Ò.
-				flag = true;	//ÀÌµ¿ÇßÀ¸´Ï±î true
-			} else if (!flag && !canGoBack(ind.peek())) {	//¸ø ¿òÁ÷¿´°í & µÚ¿¡ º® ÀÖ°Å³ª Ã»¼ÒÇÑ°÷ ÀÖ´Ù?
+			if (!flag && canGoBack(ind.peek())) {	//ì™¼ìª½ìœ¼ë¡œ íšŒì „ 4ë²ˆ í•´ë„ ëª»ê°”ê³  & ë’¤ì— ë²½ ì—†ê³  & ë’¤ì— ì²­ì†Œí•œê³³ë„ ì—†ë‹¤?
+				ind.push(goBackOnce(ind.peek()));	//ë’¤ë¡œ ë¹½í•¨
+				isCleaned[ind.peek().x][ind.peek().y]=true;	//ë’¤ë¡œ ê°„ ê³³ ìƒˆë¡œ ì²­ì†Œ.
+				flag = true;	//ì´ë™í–ˆìœ¼ë‹ˆê¹Œ true
+			} else if (!flag && !canGoBack(ind.peek())) {	//ëª» ì›€ì§ì˜€ê³  & ë’¤ì— ë²½ ìˆê±°ë‚˜ ì²­ì†Œí•œê³³ ìˆë‹¤?
 				int answer = 0;
 				for (int i = 0; i < mx; i++) {
 					for (int j = 0; j < my; j++) {
@@ -99,7 +99,7 @@ public class DFS_14503_Bread {	//·Îº¿Ã»¼Ò±â ¹®Á¦
 		}
 		return answer;
 	}
-	//³»ÀÏ Çà,¿­·Î ¹Ù²ãº¼°Í.
+	//ë‚´ì¼ í–‰,ì—´ë¡œ ë°”ê¿”ë³¼ê²ƒ.
 	public static Point turnLeft(Point cur) {
 		if (cur.dir == 0)
 			return new Point(cur.x, cur.y, 3);
