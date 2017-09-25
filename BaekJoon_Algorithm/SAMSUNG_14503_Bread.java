@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Stack;
 
-public class DFS_14503_Bread {	//로봇청소기 문제
+public class SAMSUNG_14503_Bread {	//로봇청소기 문제
 	static int[][] map;
 	static boolean[][] isCleaned;
 /*	실행예시 :답 57
