@@ -11,7 +11,7 @@ import java.util.Stack;
 1 1 1 0 0 2
 0 0 0 0 0 2
 
-´ä : 9*/
+ë‹µ : 9*/
 public class SAMSUNG_14502_Bread {
 	
 	static int[][] map;
@@ -53,20 +53,20 @@ public class SAMSUNG_14502_Bread {
 				mapIF[i][j]  = map[i][j];
 			}
 		}		
-		for(int j=0;j<3;j++) {	//º®¸¸µé¾î¼­
-			mapIF[w[j].x][w[j].y] = 1;	//º®¸¸µé±â.
-		}//º® 3°³ Ãß°¡ÇÔ.
-		for(int k=0;k<virus.size();k++) {	//¼øÈ¸½ÃÅ°°í
+		for(int j=0;j<3;j++) {	//ë²½ë§Œë“¤ì–´ì„œ
+			mapIF[w[j].x][w[j].y] = 1;	
+		}//ë²½ 3ê°œ ì¶”ê°€í•¨.
+		for(int k=0;k<virus.size();k++) {	//ìˆœíšŒì‹œí‚¤ê³ 
 			mapIF = virusDFS(virus.get(k).x, virus.get(k).y, mapIF, new boolean[mx][my]);
 		}
-		for(int i=0;i<mx;i++) {	//0¿µ¿ª ¼¼¼­
+		for(int i=0;i<mx;i++) {	//0ì˜ì—­ ì„¸ì„œ
 			for(int j=0;j<my;j++) {
 				if(mapIF[i][j]==0)safeA++;
 			}
 		}
-		return safeA;	//¸®ÅÏ!
+		return safeA;	//ë¦¬í„´!
 	}
-	public static void getThreeWallsComb(int n, int from, int[] selected) {	//¼º°ø
+	public static void getThreeWallsComb(int n, int from, int[] selected) {	
 		Point[] temp = new Point[3];
 		if(n==0) {
 			for(int i=0;i<selected.length;i++) {
@@ -81,7 +81,7 @@ public class SAMSUNG_14502_Bread {
 		}
 	}
 	
-	public static int getAreaList() {	//¼º°ø
+	public static int getAreaList() {
 		int wallNum=0;
 		for(int i=0;i<mx;i++) {
 			for(int j=0;j<my;j++) {
@@ -96,7 +96,7 @@ public class SAMSUNG_14502_Bread {
 		return wallNum;
 	}
 	
-	public static int[][] virusDFS(int x, int y, int[][] mapIF, boolean[][] isVisited) {	//¿©±â°¡ ¹®Á¦.
+	public static int[][] virusDFS(int x, int y, int[][] mapIF, boolean[][] isVisited) {	
 		isVisited[x][y] = true;
 		mapIF[x][y] =2;
 		if(x+1<mx && !isVisited[x+1][y] && (mapIF[x+1][y]!=1))virusDFS(x+1, y, mapIF, isVisited);
