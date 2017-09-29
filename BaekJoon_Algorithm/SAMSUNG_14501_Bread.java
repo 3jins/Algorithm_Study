@@ -26,7 +26,7 @@ public class SAMSUNG_14501_Bread {
 		Collections.reverse(tablePrice);
 		System.out.println(tablePrice.get(0));
 	}
-	public static void makeTimeTable(int n, int from, int[] selected, boolean[] isScheduled) {	//numÀº Ãß°¡ °¡´ÉÇÑ ³¯Â¥ ÈÄº¸
+	public static void makeTimeTable(int n, int from, int[] selected, boolean[] isScheduled) {	//numÃ€Âº ÃƒÃŸÂ°Â¡ Â°Â¡Â´Ã‰Ã‡Ã‘ Â³Â¯Ã‚Â¥ ÃˆÃ„ÂºÂ¸
 		if(n<=0) {
 			int totalP=0;
 			for(int x=0;x<selected.length;x++) 
@@ -46,9 +46,6 @@ public class SAMSUNG_14501_Bread {
 					if(j!=i)n--;
 				}
 				selected[selectedSize(selected)] = i;
-				/*for(int k=0;k<selected.length;k++)System.out.print(selected[k]+" ");
-				System.out.print("  n : "+n+"\n");
-				System.out.println("makeTimeTable("+(n-1)+", "+(i+1)+", selected, isSchduled");*/
 				makeTimeTable(n-1, i+1, selected, isScheduled);
 				selected[selectedSize(selected)-1] = -1;
 				for(int x=from;x<dayNum;x++)isScheduled[x] = false;
