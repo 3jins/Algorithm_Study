@@ -35,7 +35,6 @@ public class APARTMENT_2556_Bread {
 						updateSelectedAreaList(m.get(temp));
 						aptNum.clear();
 						maxAptNum.add(temp);
-						System.out.println("i : "+i+" j : "+j+" temp : "+temp);
 					}	
 				}	
 			}
