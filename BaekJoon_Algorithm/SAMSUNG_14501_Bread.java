@@ -25,7 +25,7 @@ public class SAMSUNG_14501_Bread {
 		Collections.reverse(tablePrice);
 		System.out.print(tablePrice.get(0));
 	}
-	public static void makeTimeTable(int n, int from, int[] selected, boolean[] isScheduled) {	//num은 추가 가능한 날짜 후보
+	public static void makeTimeTable(int n, int from, int[] selected, boolean[] isScheduled) {
 		n--;
 		for(int i=from;i<dayNum;i++) {
 			int prevN=n;
