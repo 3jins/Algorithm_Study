@@ -32,7 +32,7 @@ public class APARTMENT_2556_Bread {
 						Collections.sort(aptNum);
 						Collections.reverse(aptNum);
 						int temp = aptNum.get(0);
-						updateSelectedAreaList(m.get(temp));	//해당 영역의 리스트가 쭉 나오것지..?
+						updateSelectedAreaList(m.get(temp));
 						aptNum.clear();
 						maxAptNum.add(temp);
 						System.out.println("i : "+i+" j : "+j+" temp : "+temp);
