@@ -5,31 +5,24 @@ public class BruteForce_2309_Bread {
 
 	static int[] answer;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		Scanner sc = new Scanner(System.in);
 		int[] d = new int[9];
 		answer = new int[7];
-		for(int i=0;i<9;i++) {
+		for(int i=0;i<9;i++)
 			d[i] = sc.nextInt();
-		}
 		selectDwarf(0, 7, d, new int[7]);
 		Arrays.sort(answer);
-		for(int i=0;i<7;i++) {
+		for(int i=0;i<7;i++)
 			System.out.println(answer[i]);
-		}
-		
 	}
 	public static void selectDwarf(int from, int n, int[] d, int[] select) {
 		if(n==0) {
 			int sum=0;
-			for(int i=0;i<7;i++) {
+			for(int i=0;i<7;i++)
 				sum+=select[i];
-			}
-			if(sum==100) {
-				for(int i=0;i<7;i++) {
+			if(sum==100){
+				for(int i=0;i<7;i++)
 					answer[i] = select[i];
-				}
 			}
 			return;
 		}
