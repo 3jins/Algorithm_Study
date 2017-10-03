@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Bruteforce_7568_Bread {
+public class BruteForce_7568_Bread {
 	static int n;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
