@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class BruteForce_1213_Bread {
 
 	static int n;
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=  new Scanner(System.in);
@@ -19,7 +18,7 @@ public class BruteForce_1213_Bread {
 		for(int i=0;i<n;i++) {
 			boolean flag = false;
 			for(int j=i+1;j<n;j++) {
-				if(name[i]==name[j] &&ind<samearr.length) {
+				if(name[i]==name[j] &&ind<samearr.length &&name[i]!=0) {
 					samearr[ind++] = name[i];
 					name[i] = 0;
 					name[j] = 0;
@@ -30,9 +29,7 @@ public class BruteForce_1213_Bread {
 			if(!flag && name[i]>0) {
 				difNum++;
 				dif = name[i];
-				System.out.println("dif : "+dif);
 			}
-			
 		}
 		Arrays.sort(samearr);
 		if(difNum==0) {
@@ -51,8 +48,10 @@ public class BruteForce_1213_Bread {
 		if(difNum!=0 && difNum!=1) {
 			System.out.println("I'm Sorry Hansoo");
 		}
-		for(int i=0;i<n;i++)
+		else {
+			for(int i=0;i<n;i++)
 			System.out.print(arr[i]);
+		}
 	}
 
 }
