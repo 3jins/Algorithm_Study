@@ -3,7 +3,7 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class DP_1260_JimJim {
+public class DFSBFS_1260_JimJim {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
