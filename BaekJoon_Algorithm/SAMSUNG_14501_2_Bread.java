@@ -1,47 +1,45 @@
 import java.util.Scanner;
-public class SAMSUNG_14501_2_Bread {
 
-	static int result=0;
-	static int days;
-	static int[] p;
-	static int[] t;
-	public static void main(String[] args) {
+public class SAMSUNG_14501_2_Bread {
+	int[][] tt;
+	int max=0;
+	int dn;
+	public int start() {
 		Scanner sc = new Scanner(System.in);
-		days = sc.nextInt();
-		t = new int[days];
-		p = new int[days];
-		for(int i=0;i<days;i++) {
-			t[i] = sc.nextInt();
-			p[i] = sc.nextInt();
+		dn = sc.nextInt();
+		tt = new int[dn][2];
+		for(int i=0;i<dn;i++) {
+			tt[i][0] = sc.nextInt();
+			tt[i][1] = sc.nextInt();
 		}
-		for(int i=1;i<=days;i++) {
-			makeTimeTable(0, i, i, new int[i], new int[days]);
-		}
-		System.out.println("result : "+result);
+		for(int i=1;i<=dn;i++) 
+			schedule(i, 0, new int[i]);
+		return max;
 	}
-	public static void makeTimeTable(int from, int sN, int n, int[] select, int[] schedule) {
-		if(n==0) {
-			int sum=0;
-			for(int i=0;i<days;i++) {
-				if(schedule[i]>1) 
-					return;
+	public void schedule(int num, int from, int[] select) {
+		if(num==0) {
+			int[] sch = new int[dn];
+			for(int i=0;i<select.length;i++) {
+				if(select[i]+tt[select[i]][0]>dn) return;
+				for(int j=select[i];j<select[i]+tt[select[i]][0];j++) {
+					sch[j]++;
+					if(sch[j]>1)return;
+				}
 			}
-			for(int i=0;i<sN;i++)
-				sum+=p[select[i]];
-			result = Math.max(result, sum);
+			int result =0;
+			for(int i=0;i<select.length;i++) {
+				result+=tt[select[i]][1];
+			}
+			max = Math.max(result, max);
 			return;
 		}
-		for(int i=from;i<days;i++) {
-			if((i+t[i])<=days) {
-				select[sN-n] = i;
-				for(int j=i;j<i+t[i];j++) {
-					schedule[j]++;
-				}
-				makeTimeTable(i+1, sN, n-1, select, schedule);
-				for(int j=i;j<i+t[i];j++) {
-					schedule[j]--;
-				}
-			}
+		for(int i=from;i<dn;i++) {
+			select[select.length-num] = i;
+			schedule(num-1,i+1,select);
 		}
+	}
+	public static void main(String[] args) {
+		SAMSUNG_14501_2_Bread s = new SAMSUNG_14501_2_Bread();
+		System.out.println(s.start());
 	}
 }
