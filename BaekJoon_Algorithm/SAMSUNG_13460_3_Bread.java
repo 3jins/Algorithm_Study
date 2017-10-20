@@ -5,11 +5,8 @@ public class SAMSUNG_13460_3_Bread {
 	int min=10000;
 	int gx, gy;
 	char[][] map;
-	/*int[] dx= {1,-1,0,0};
-	int[] dy = {0,0,1,-1};*/
 	int[] dx= {1,0,-1,0};
 	int[] dy = {0,1,0,-1};
-	
 	
 	public int start() {
 		Scanner sc = new Scanner(System.in);
@@ -27,17 +24,16 @@ public class SAMSUNG_13460_3_Bread {
 				else if(map[i][j]=='O') {gx=i;gy=j;}
 			}
 		}
-		move(10 ,map, new Ball(rx, ry, bx, by), 0, "");
+		move(10 ,map, new Ball(rx, ry, bx, by), 0);
 		if(min==10000)min=-1;
 		return min;
 	}
-	public void move(int cnt, char[][] map, Ball v, int prevDir, String s) {
+	public void move(int cnt, char[][] map, Ball v, int prevDir) {
 		if(cnt==0) {
 			return;
 		}
 		for(int k=0;k<4;k++) {
-			//ÆÄ¶õ°Å ±¼¸®±â.
-			String sc = s;
+			//íŒŒëž€ê±° êµ´ë¦¬ê¸°.
 			if(k==(4-prevDir))continue;
 			boolean redGoal = false;
 			boolean blueGoal = false;
@@ -47,12 +43,12 @@ public class SAMSUNG_13460_3_Bread {
 					cmap[i][j] = map[i][j];
 				}
 			}
-			//ÆÄ¶õÃ³¸®
+			//íŒŒëž€ì²˜ë¦¬
 			int bxt=v.bx+dx[k];
 			int byt=v.by+dy[k];
 			
 			while(true) {
-				if(map[bxt][byt]=='#') {	//º®³ª¿À¸é º® Àü
+				if(map[bxt][byt]=='#') {	//ë²½ë‚˜ì˜¤ë©´ ë²½ ì „
 					bxt=bxt-dx[k];
 					byt=byt-dy[k];
 					break;
@@ -68,11 +64,11 @@ public class SAMSUNG_13460_3_Bread {
 			if(cmap[bxt][byt]=='O')cmap[bxt][byt] = 'O';
 			else cmap[bxt][byt] = 'B';
 			
-			//»¡°£Ã³¸®
+			//ë¹¨ê°„ì²˜ë¦¬
 			int rxt=v.rx+dx[k];
 			int ryt=v.ry+dy[k];
 			while(true) {
-				if(map[rxt][ryt]=='#') {	//º®³ª¿À¸é º® Àü
+				if(map[rxt][ryt]=='#') {	//ë²½ë‚˜ì˜¤ë©´ ë²½ ì „
 					rxt=rxt-dx[k];
 					ryt=ryt-dy[k];
 					break;
@@ -87,14 +83,14 @@ public class SAMSUNG_13460_3_Bread {
 			if(cmap[rxt][ryt]=='O')cmap[rxt][ryt] = 'O';
 			else cmap[rxt][ryt] = 'R';
 
-			if(rxt==bxt &&ryt==byt) {	//°ãÃÄÀÖÀ»¶§ ¶¼¾î³õ±â.
-				if(v.bx*dx[k]>=v.rx*dx[k] && v.by*dy[k]>=v.ry*dy[k]) {	//B¸ÕÀú
+			if(rxt==bxt &&ryt==byt) {	//ê²¹ì³ìžˆì„ë•Œ ë–¼ì–´ë†“ê¸°.
+				if(v.bx*dx[k]>=v.rx*dx[k] && v.by*dy[k]>=v.ry*dy[k]) {	//Bë¨¼ì €
 					rxt-=dx[k];
 					ryt-=dy[k];
 					cmap[rxt][ryt] = 'R';
 					cmap[bxt][byt] = 'B';
 					
-				}else{	//A¸ÕÀú
+				}else{	//Aë¨¼ì €
 					bxt-=dx[k];
 					byt-=dy[k];
 					cmap[bxt][byt] = 'B';
@@ -110,20 +106,10 @@ public class SAMSUNG_13460_3_Bread {
 			}else if(blueGoal) {
 				continue;
 			}
-			/*for(int i=0;i<n;i++) {
-				for(int j=0;j<m;j++) {
-					System.out.print(cmap[i][j]);
-				}System.out.println();
-			}System.out.println();*/
-			sc+=(k+"");
-			/*if(sc.startsWith("202030"))
-				System.out.println(sc);*/
-			move(cnt-1,cmap,new Ball(rxt,ryt,bxt,byt), k, sc);
+			move(cnt-1,cmap,new Ball(rxt,ryt,bxt,byt), k);
 		}
 	}
-	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		SAMSUNG_13460_3_Bread s = new SAMSUNG_13460_3_Bread();
 		System.out.println(s.start());
 	}
