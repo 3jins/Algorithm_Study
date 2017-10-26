@@ -4,7 +4,7 @@ package JimJim;
  * Created by Jimin on 10/2/17.
  */
 import java.util.Scanner;
-public class Maze_2178_JimJim {
+public class BFS_2178_JimJim {
 
     static int[][] matrix;
     static boolean[][] matrix_check;

@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Created by Jimin on 10/2/17.
  */
-public class Virus_2606_JimJim {
+public class DFS_2606_JimJim {
 
     static int[][] matrix;
     static boolean[] check;
