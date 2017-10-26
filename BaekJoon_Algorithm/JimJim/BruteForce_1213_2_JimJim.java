@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package JimJim;
 import java.util.Scanner;
 
 /**

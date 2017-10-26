@@ -1,7 +1,8 @@
+package JimJim;
 /**
+ *
  * Created by Jimin on 10/2/17.
  */
-import java.util.LinkedList;
 import java.util.Scanner;
 public class Maze_2178_JimJim {
 

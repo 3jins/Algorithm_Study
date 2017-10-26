@@ -1,3 +1,4 @@
+package JimJim;
 import java.util.Scanner;
 
 public class SAMSUNG_13460_JimJim {

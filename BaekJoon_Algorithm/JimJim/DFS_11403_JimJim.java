@@ -2,7 +2,7 @@
  * Created by Jimin on 9/20/17.
  * https://www.acmicpc.net/problem/11403
  */
-
+package JimJim;
 import java.util.Scanner;
 import java.util.Stack;
 
